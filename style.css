@@ -1,0 +1,1775 @@
+:root {
+    --base-font-size: calc(0.5rem + 3.5vw);
+}
+
+body {
+    width: 100vw;
+    margin-top: 6vw;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #000000;
+    background-color: #ffffff;
+    font-size: var(--base-font-size);
+    overflow-x: hidden;
+}
+
+.heading-1 {
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.heading-3 {
+    font-size: 28%;
+    color: #333333;
+}
+
+.heading-4 {
+    font-size: 28%;
+    font-weight: bold;
+}
+
+.paragraph {
+    font-size: 25%;
+    color: #555;
+}
+
+
+/* --- Стили для шапки сайта --- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6vw;
+    background: rgb(143, 210, 129);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+    transition: background 0.3s;
+    z-index: 1;
+}
+
+.nav_container {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60%;
+}
+
+.nav__logo img {
+    margin-top: 60%;
+    margin-left: 20%;
+    height: 5vw;
+    border-radius: 1vw;
+    object-fit: contain;
+}
+
+.nav__menu {
+    display: flex;
+    margin-right: 10%;
+}
+
+.nav__list {
+    display: flex;
+    gap: 4vw;
+    margin: 0;
+    list-style: none;
+}
+
+.nav__item {
+    position: relative;
+}
+
+.nav__item:last-child {
+    margin-right: 0; 
+}
+
+.nav__link {
+    font-size: 1.5vw;
+    font-weight: 600;
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: #ffffff;
+}
+
+/* Стили для бургера */
+.burger {
+    display: none; /* По умолчанию скрыт */
+    cursor: pointer;
+    width: 25px;
+    height: 26px;
+    position: relative;
+    z-index: 20;
+}
+
+.burger span {
+    display: block;
+    width: 100%;
+    height: 4px;
+    background: #333;
+    margin: 6px 0;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Анимация бургера при открытии */
+.burger.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.burger.active span:nth-child(2) {
+    opacity: 0;
+}
+.burger.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Стили для меню на мобильных устройствах */
+@media (max-width: 768px) {
+    .header {
+        height: 8vw;
+    }
+    .burger {
+        display: block; /* Показываем бургер */
+    }
+
+    .header .nav__logo {
+        width: 8vw;
+        
+    }
+
+    .nav__menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+        padding: 0 0;
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .nav__menu.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .nav__link {
+        font-size: 18px;
+    }
+}
+
+
+/* Первая страница (Умные технологии для живых растений) */
+.home-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw;
+    max-width: 100%;
+    min-height: 10vh;
+    height: 60vh;
+    margin-top: 5vh;
+    margin-bottom: 5vw;
+    padding: 0px 5%;
+    background-color: rgb(255, 255, 255);   
+}
+
+.home__content {
+    height: 45vh;
+    max-width: 100%;
+}
+
+.home__content .up-text .heading-3{
+    margin-bottom: 0;
+}
+
+.home__content .up-text .heading-1 {
+    margin-bottom: 1%;
+    margin-top: 1%;
+}
+
+.home__content .up-text .paragraph {
+    margin-top: 0;
+}
+
+.home__image img {
+    height: 100%;
+    width: 40vw;
+    transform: translateY(5%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    mask-image: linear-gradient(to right, rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 1) 10%);
+    -webkit-mask-image: linear-gradient(to right, rgba(255, 255, 255, 0) 10%, rgba(0, 0, 0, 1) 100%);
+}
+
+#home .features {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2%;
+    margin-top: 2px;
+}
+
+#home .text .heading-4 {
+    margin-bottom: 2%;
+}
+
+#home .text .paragraph {
+    margin-top: 1%;
+    margin-bottom: 2%;
+}
+
+#home .feature {
+    display: flex;
+    align-items: center;
+    gap: 2%;
+}
+
+#home .feature img {
+    width: 3vw;
+    height: 3vw;
+}
+
+/* --- Стили для мобильных устройств --- */
+@media (max-width: 768px) {
+    /* Секция на главной странице */
+    .home-section {
+        flex-direction: column; /* Меняем расположение на колонку */
+        align-items: center;
+        justify-content: center;
+        min-height: auto;
+        height: auto;
+        padding: 0 10%;
+        margin-top: 0;
+    }
+
+    /* Контент в секции */
+    .home__content {
+        max-width: 100%;
+        text-align: center;
+        margin-bottom: 2vh;
+    }
+
+    /* Заголовок и текст */
+    .home__content .up-text .heading-1 {
+        font-size: 6vw; /* Увеличиваем размер заголовка */
+        margin-bottom: 2%; /* Отступ */
+    }
+
+    .home__content .up-text .heading-3 {
+        font-size: 4vw; /* Уменьшаем размер подзаголовка */
+        margin-bottom: 2%;
+    }
+
+    .home__content .up-text .paragraph {
+        font-size: 3.5vw; /* Уменьшаем размер текста */
+        margin-top: 1%;
+        margin-bottom: 4%;
+    }
+
+    /* Картинка */
+    .home__image img {
+        display: none;
+    }
+
+    /* Блок с характеристиками */
+    .features {
+        display: grid;
+        grid-template-columns: 1fr; /* Ставим все элементы в одну колонку */
+        gap: 5vw; /* Увеличиваем отступы между элементами */
+        margin-top: 9vw;
+    }
+
+    /* Стили для каждого элемента характеристики */
+    .feature {
+        display: flex;
+        flex-direction: column; /* Располагаем элементы в колонку */
+        align-items: center; /* Центрируем элементы */
+        gap: 2vw;
+    }
+
+    .feature img {
+        width: 18vw; /* Увеличиваем иконки */
+        height: auto;
+    }
+
+    /* Заголовок характеристик */
+    .home .feature .heading-4 {
+        font-size: 18%; /* Уменьшаем размер текста */
+    }
+
+    .home .feature .paragraph {
+        font-size: 3.5vw !important;
+        line-height: 1.4;
+    }
+}
+
+
+
+/* Как мы создаем зеленые пространства */
+.how-it-works {
+    width: 100vw;
+    position: relative;
+    text-align: center;
+    padding: 7% 5%;
+    padding-top: 3vw;
+    background: url("assets/png/background-leaves.png") center/cover no-repeat; 
+}
+
+.section-title {
+    margin-bottom: 5%;
+    transform: translateX(-5%);
+    font-size: var(--base-font-size);
+    font-weight: bold;
+    color: #222;
+}
+
+.how_it_works__container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 100%;
+    flex-wrap: nowrap;
+}
+
+.how-it-works .step {
+    flex: 1 1 calc(33.333% - 20px); /* Делаем карточки примерно на 3 колонки */
+    padding: 2%;
+    transform: translateX(-17%);
+    border-radius: 10px;
+    font-size: 100%;
+}
+
+.how-it-works .step__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2%;
+    width: 40vh;
+    border-radius: 50%;
+    background: none;
+    box-shadow: none;
+}
+
+.how-it-works .step__icon img {
+    width: 6vw;
+}
+
+.how-it-works .step .heading-3 {
+    font-size: 40%;
+    font-weight: bold;
+}
+
+.how-it-works .step .paragraph {
+    font-size: 30%;
+    color: #444;
+}
+
+/* --- Стили для мобильных устройств --- */
+@media (max-width: 768px) {
+    /* Секция с фоном */
+    .how-it-works {
+        background: none; /* Меньше фона для мобильных */
+        padding: 1% 5%; /* Увеличиваем отступы сверху и снизу */
+    }
+
+    /* Заголовок секции */
+    .section-title {
+        transform: translateX(5%);
+        font-size: 6vw; /* Уменьшаем размер шрифта для мобильных */
+        margin-bottom: 8%;
+    }
+
+    /* Контейнер с шагами */
+    .how_it_works__container {
+        display: block; /* Изменяем с flex на block, чтобы каждый шаг был на новой строке */
+        width: 100%;
+        font-size: 80%;
+        transform: translateX(1%);
+    }
+
+    /* Шаги */
+    .how-it-works .step {
+        flex: none; /* Убираем флекс-блоки, делаем их отдельными элементами */
+        margin-bottom: 10px; /* Добавляем отступы снизу */
+        padding: 4%; /* Увеличиваем отступы */
+        width: 100%; /* Задаем 100% ширины */
+        transform: none; /* Убираем трансформацию */
+    }
+
+    /* Иконки */
+    .how-it-works .step__icon {
+        width: 30vw; /* Уменьшаем размер иконки */
+        margin-bottom: 5%; /* Добавляем отступ снизу */
+    }
+
+    .how-it-works .step__icon img {
+        width: 12vw; /* Увеличиваем размер иконок для мобильных */
+        height: auto;
+    }
+
+    /* Заголовок в шаге */
+    .how-it-works .step .heading-3 {
+        font-size: 5vw; /* Уменьшаем размер заголовка */
+    }
+
+    /* Текст в шаге */
+    .how-it-works .step .paragraph {
+        font-size: 4vw; /* Уменьшаем размер текста */
+        color: #444;
+    }
+}
+
+
+/*Сделаем города зелеными вместе*/
+.lets-make-cities-green-together {
+    width: 100%;
+    padding: 20px; 
+    font-size: var(--base-font-size);
+}   
+
+.city-data-header {
+    display: flex;
+    font-size: 100%;
+}
+
+.header-2 {
+    float: left;
+    margin: 5% 10% 0 7%;
+    font-size: 100%;
+}
+
+.icon-leaves {
+    width: 20%;
+    height: 20%;
+}
+
+.city data .container {
+    justify-content: space-between;
+}
+
+.container .paragraph {
+    float: left;
+    font-size: 30%;
+    margin: 0 10% 0 7%;
+}
+
+.header-3 {
+    margin: 5% 0 0 7%; 
+    font-size: 70%;
+}
+
+.city-data .features {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap; 
+    margin: 3% 0 0 0; 
+}
+
+.city-data .features .feature {
+    text-align: left;
+    margin-left: 7%;
+}
+
+.city-data .features .feature img {
+    width: 30%;
+}
+
+.city-data .features .feature .heading-3 {
+    font-size: 35%;
+}
+
+.city-data .features .feature .paragraph {
+    font-size: 25%;
+}
+
+@media (max-width: 768px) {
+    .lets-make-cities-green-together {
+        padding: 1vw 1vw;
+        text-align: center;
+    }
+
+    .city-data-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4vw;
+        flex-wrap: wrap;
+    }
+
+    .city-data-header .header-2 {
+        font-size: 6vw;
+        margin: 0 0 0 5vw;
+        text-align: center;
+        flex: 8% 10% 60%;
+    }
+
+    .icon-leaves {
+        width: 10vw;
+        height: auto;
+        flex: 1 1 10%;
+        transform: translateX(80%);
+    }
+
+    .container {
+        margin-top: 6vw;
+        width: 100%; /* Текст занимает всю ширину */
+        text-align: left; /* Выравнивание текста слева */
+    }
+
+    .container .paragraph {
+        font-size: 3.5vw; /* Увеличиваем размер шрифта для мобильных устройств */
+        line-height: 1.4; /* Интервал между строками для лучшей читаемости */
+        margin-bottom: 3vw; /* Отступы между абзацами */
+        padding: 0 0; /* Немного отступов по бокам, чтобы текст не упирался в края */
+    }
+
+    .city-data .header-3 {
+        font-size: 5vw;
+        margin-top: 8vw;
+        text-align: center;
+    }
+
+    .city-data .features {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* Две колонки */
+        gap: 3vw;
+        margin-top: 5vw;
+        justify-content: center;
+    }
+
+    .city-data .feature {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1vw 1vw;
+        border-radius: 12px;
+        background: #f8f8f8;
+        box-shadow: 10px 10px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .city-data .feature img {
+        width: 10vw;
+        height: auto;
+        margin-bottom: 3vw;
+    }
+
+    .city-data .feature .heading-3 {
+        font-size: 7vw;
+        font-weight: bold;
+    }
+
+    .city-data .feature .paragraph {
+        font-size: 4vw; /* Увеличиваем размер текста */
+        line-height: 1.4;
+        width: 100%; /* Текст занимает всю ширину контейнера */
+        text-align: left; /* Выравнивание текста по левому краю */
+    }
+
+    /* Если экран совсем маленький (< 480px), делаем в один столбик */
+    @media (max-width: 480px) {
+        .features {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+
+/* Блок с "Хочу помочь!" */
+.help {
+    background-color: #3fac3b25; 
+    width: 80vw;
+    border-radius: 20px;
+    padding: 2% 5% 5% 3%;
+    display: flex;
+    margin: 2% auto;
+    gap: 4%;
+    align-items: center;
+    font-size: var(--base-font-size);
+}
+
+.want-to-help {
+    display: flex;
+    width: 60%;
+    flex-direction: column;
+    font-size: 100%;
+}
+
+.image-park {
+    width: 30vw;
+    height: 25vw;
+    border-radius: 20px;
+}
+
+.help .heading-2 {
+    font-size: 90%;
+    font-weight: bold;
+    color: #000;
+    margin-bottom: 3%;
+}
+
+.help .heading-3 {
+    font-size: 40%;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.help .heading-4 {
+    font-size: 40%;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.help .heading-5 {
+    font-size: 40%;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0;
+}
+
+.help .info .paragraph {
+    font-size: 30%;
+    color: #555;
+    margin-bottom: 0;
+}
+
+.help .email-form {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    margin-top: 4%;
+    position: relative;
+}
+
+.help .email-input {
+    width: 45%;
+    padding: 2.5% 9% 2.5% 3%;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    font-size: 30%;
+    outline: none;
+}
+
+.help .email-icon {
+    position: absolute;
+    right: 45%;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    width: 5%;
+}
+
+.help .submit-button {
+    background-color: #2563eb; /* Синий цвет кнопки */
+    color: white;
+    border: none;
+    padding: 2.5% 4%;
+    font-size: 30%;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 2%;
+    transition: background 0.3s;
+}
+
+.submit-button:hover {
+    background-color: #1d4ed8;
+}
+
+@media (max-width: 768px) {
+    .help {
+        width: 100vw;
+        flex-direction: column;
+        padding: 5% 4%;
+        gap: 5%;
+        justify-content: center;
+        margin: 10vw auto;
+    }
+
+    .want-to-help {
+        width: 100%;
+        align-items: center;
+    }
+
+    .image-park {
+        width: 70vw;
+        height: 50vw;
+        margin-top: 5%;
+    }
+
+    .help .heading-2 {
+        font-size: 6vw;
+        text-align: center;
+        margin-bottom: 5%;
+    }
+
+    .help .heading-3 {
+        font-size: 4vw;
+        text-align: center;
+    }
+
+    .help .heading-4, .help .heading-5 {
+        font-size: 3.5vw;
+        text-align: center;
+        margin-top: 2%;
+    }
+
+    .help .info .paragraph {
+        font-size: 4vw;
+        line-height: 1.4;
+        text-align: center;
+        margin-bottom: 3%;
+    }
+
+    .help .email-form {
+        width: 100%;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .help .email-input {
+        width: 90%;
+        font-size: 4vw;
+        padding: 4% 5%;
+    }
+
+    .help .email-icon {
+        width: 8%;
+        right: 30%;
+        margin: -25px -90px -70px 0;
+    }
+
+    .help .submit-button {
+        width: 60%;
+        font-size: 4.5vw;
+        padding: 3% 0;
+        margin-left: 15vw;
+    }
+}
+
+/*Сравнение традиционного ухода и Smart Garden*/
+
+.comparison {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100vw;
+    height: 50vw;
+    font-size: var(--base-font-size);
+    background: url("assets/png/leave.png");
+    background-position: center;
+    background-size: cover;
+    
+}
+
+.comparison .info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 3%;
+    font-size: 100%;
+    text-align: center;
+}
+
+.comparison .info .header-2 {
+    margin-bottom: 1%;
+    width: 100%;
+}
+
+.comparison .info .paragraph {
+    font-size: 30%;
+}
+
+.table-container {
+    display: inline-block; /* Чтобы обертка подстраивалась под размер таблицы */
+    width: 60%;
+    align-items: center;
+    border-radius: 24px;
+    border: 2px solid white;
+    overflow: hidden;
+    font-size: 20%;
+}
+
+.comparison .comparison-table {
+    border-collapse: collapse;
+    width: 100%;
+    color: white;
+}
+
+.comparison .comparison-table th, td {
+    border: 1px solid white;
+    padding: 1% 1.5% 1% 1.5%;
+}
+
+.comparison .comparison-table td {
+    background-color: 	#6CA368;
+}
+
+.comparison .comparison-table th {
+    background-color: 	#3FAC3B;
+    padding: 1% 0 1% 0;
+}
+
+@media (max-width: 768px) {
+    .comparison {
+        background: none; /* Убираем задний фон */
+        height: auto; /* Высота адаптируется под контент */
+        padding: 5% 2%;
+    }
+
+    .table-container {
+        width: 90%;
+    }
+
+    .comparison .comparison-table th, td {
+        font-size: 16px; /* Уменьшаем размер текста */
+        padding: 1% 1%; /* Уменьшаем отступы */
+    }
+
+    .comparison .info .header-2 {
+        font-size: 6vw; /* Размер шрифта для заголовка */
+        margin-bottom: 1%; /* Меньше отступов */
+    }
+
+    .comparison .info .paragraph {
+        font-size: 4.5vw; /* Размер шрифта для параграфа */
+        margin-bottom: 3%; /* Увеличиваем отступ между абзацами */
+    }
+
+    .comparison .info {
+        margin-bottom: 5%; /* Больше отступов */
+    }
+
+    .comparison .comparison-table {
+        border: none; /* Убираем рамки таблицы */
+    }
+
+    .comparison .comparison-table th, td {
+        border: 1px solid #555555bf; /* Светло-серая рамка для ячеек */
+    }
+
+    .comparison .comparison-table th {
+        background-color: #3FAC3B; /* Цвет фона для заголовков таблицы */
+    }
+
+    .comparison .comparison-table td {
+        background-color: #a8a8a876; /* Светлый фон для данных */
+    }
+}
+
+/* Преимущества растений (хочу зеленый офис) */
+.green-benefits {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4%;
+    font-size: var(--base-font-size);
+    margin: 1% auto;
+}
+
+.green-benefits .content {
+    width: 50%;
+    font-size: 100%;
+}
+
+.green-benefits .benefit {
+    margin-bottom: 1%;
+}
+
+.benefit .benefit-title {
+    font-size: 50%;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 4%;
+    display: flex;
+    align-items: center;
+    gap: 1%;
+    margin-left: -2%;
+}
+
+.arrow-icon {
+    width: 5%;
+    height: 15%;
+}
+
+.benefit-text {
+    font-size: 25%;
+    color: #555;
+    margin: 0;
+}
+
+.green-office-btn {
+    background-color: #4CAF50;
+    color: white;
+    font-size: 30%;
+    font-weight: bold;
+    padding: 2% 4%;
+    border: none;
+    border-radius: 13px;
+    cursor: pointer;
+    margin-top: 2%;
+    margin-left: 25%;
+    display: flex;
+    align-items: center;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+.green-office-btn:hover {
+    background-color: #3e8e41;
+}
+
+.image-container {
+    width: 40vw;
+    height: 30vw;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+/* Для экранов до 768px */
+@media (max-width: 768px) {
+    .green-benefits {
+        flex-direction: column; /* Размещаем элементы вертикально */
+        padding: 4%; /* Оставляем отступы */
+        margin: 2% auto;
+    }
+
+    .green-benefits .content {
+        width: 100%; /* Контент занимает всю ширину */
+        font-size: 90%; /* Уменьшаем шрифт для мобильных устройств */
+        margin-bottom: 3%; /* Добавляем отступ снизу */
+    }
+
+    .green-benefits .benefit {
+        margin-bottom: 3%; /* Увеличиваем отступы между преимуществами */
+    }
+
+    .benefit .benefit-title {
+        font-size: 18px; /* Уменьшаем размер шрифта заголовка */
+        margin-left: 0; /* Убираем отрицательные отступы */
+        display: flex;
+        align-items: center;
+        gap: 1%;
+    }
+
+    .arrow-icon {
+        width: 8%; /* Уменьшаем размер иконки */
+        height: auto;
+    }
+
+    .benefit-text {
+        font-size: 16px; /* Уменьшаем шрифт текста */
+        color: #555;
+    }
+
+    .green-office-btn {
+        font-size: 16px; /* Уменьшаем размер шрифта на кнопке */
+        padding: 5% 8%; /* Увеличиваем отступы внутри кнопки */
+        margin: 3% auto; /* Центрируем кнопку */
+        display: block; /* Меняем на блочный элемент */
+        width: 80%; /* Убираем фиксированную ширину */
+        margin-top: 4%; /* Увеличиваем отступ сверху */
+    }
+
+    .image-container {
+        width: 80vw; /* Увеличиваем ширину контейнера для изображения */
+        height: auto; /* Высота адаптируется под изображение */
+        margin-top: 5%; /* Добавляем отступ сверху */
+    }
+
+    .image-container img {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+}
+
+
+
+/* Наши продукты */
+.products {
+    padding: 5% 0;
+    width: 100vw;
+    height: 40vw;
+}
+
+.products .heading-2 {
+    font-size: var(--base-font-size);
+    margin: 0 0 2% 5%
+}
+
+.product-list {
+    display: flex;
+    justify-content: center;
+    gap: 4%;
+}
+
+.product {
+    display: flex;
+    flex-flow: column;
+    width: 25%;
+    height: 35%;
+    position: relative;
+}
+
+.product-wrapper {
+    background-color: #c2d6b5; 
+    border-radius: 20px;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    width: 100%;
+}
+
+.product-image {
+    display: flex;
+    position: relative;
+    width: 80%;
+    height: 90%;
+    align-items: center;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    border-radius: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.product-image:hover .overlay {
+    opacity: 1;
+}
+
+.caption-details {
+    font-size: 30%;
+}
+
+.caption-price {
+    font-size: 30%;
+    font-weight: bold;
+}
+
+.product-title {
+    font-size: 50%;
+    font-weight: bold;
+    margin-top: 1%;
+}
+
+.product-subtitle {
+    font-size: 25%;
+    color: #666;
+}
+
+/* Для экранов до 768px */
+@media (max-width: 768px) {
+    .products {
+        padding: 5%;
+        width: 100%;
+        height: auto;
+    }
+
+    .products .heading-2 {
+        font-size: 120%; /* Уменьшаем заголовок */
+        margin: 0 0 2% 0; /* Убираем лишние отступы */
+        text-align: center;
+    }
+
+    .product-list {
+        display: grid; /* Используем grid для адаптации */
+        grid-template-columns: repeat(2, 1fr); /* Два продукта в ряд */
+        gap: 6%; /* Уменьшаем промежуток */
+    }
+
+    .product {
+        display: flex;
+        flex-flow: column;
+        width: 100%;
+        height: auto;
+        position: relative;
+        align-items: center;
+        text-align: center;
+    }
+
+    .product-wrapper {
+        background-color: #c2d6b5; 
+        border-radius: 20px;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+        height: auto;
+        width: 100%;
+        padding: 3%;
+    }
+
+    .product-image {
+        display: flex;
+        position: relative;
+        width: 100%;
+        height: 150px; /* Уменьшаем высоту изображений */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .overlay {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.7);
+        color: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        border-radius: 10px;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .product-image:hover .overlay {
+        opacity: 1;
+    }
+
+    .caption-details {
+        font-size: 14px; /* Уменьшаем шрифт */
+    }
+
+    .caption-price {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    .product-title {
+        font-size: 18px; /* Уменьшаем размер шрифта */
+        font-weight: bold;
+        margin-top: 1%;
+        text-align: center;
+    }
+
+    .product-subtitle {
+        font-size: 14px;
+        color: #666;
+        text-align: center;
+    }
+}
+
+
+/* Почему Smart Garden */
+.why-smart-garden {
+    padding: 0px 10%;
+    position: relative;
+    height: 40vw;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: flex-start; 
+}
+
+
+.why-content {
+    display: flex;
+    flex-flow: row;
+    height: 100%;
+    font-size: var(--base-font-size);
+}
+
+.why-content .header-2 {
+    font-size: 80%;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 4%;
+}
+
+.leaf-left {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 25%;
+    z-index: -1;
+
+}
+
+.leaf-right {
+    position: absolute;
+    width: 15%;
+    right: 0px;
+    z-index: -1;
+}
+
+.accordion {
+    max-width: 60%; 
+}
+
+
+.accordion-item {
+    margin-bottom: 6%;
+    border-bottom: 1px solid #ddd;
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;  
+    justify-content: space-between; 
+    width: 100%;
+    background: none;
+    border: none;
+    font-size: 40%;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 2%;
+    font-size: 100%;
+    color: #555;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+}
+
+
+.accordion-item.active .accordion-content {
+    max-height: 50%; 
+    padding: 0px;
+}
+
+.accordion-arrow {
+    display: inline-block;
+    width: 5%;
+    height: 1%;
+}
+
+.accordion-arrow svg {
+    width: 80%;
+    height: 30%;
+    transition: transform 0.8s ease;
+}
+
+.accordion-item.active .accordion-arrow svg {
+    transform: rotate(180deg);  
+}
+
+/* Для экранов до 768px */
+@media (max-width: 768px) {
+    .why-smart-garden {
+        padding: 0 5%; /* Уменьшаем отступы */
+        position: relative;
+        height: auto; /* Убираем фиксированную высоту */
+        display: block; /* Меняем на блочную модель */
+    }
+
+    .why-content {
+        display: block; /* Разбиваем на блоки */
+        width: 100%;
+        font-size: 90%; /* Уменьшаем размер шрифта */
+    }
+
+    .why-content .header-2 {
+        transform: translateX(35%);
+        font-size: 120%; /* Увеличиваем шрифт заголовка */
+        font-weight: 700;
+        color: #000;
+        margin-bottom: 3%; /* Уменьшаем отступ снизу */
+        text-align: center;
+    }
+
+    .leaf-left, .leaf-right {
+        display: none; /* Убираем листья для мобильных */
+    }
+
+    .accordion {
+        max-width: 100%; /* Делаем ширину аккордеона на весь экран */
+    }
+
+    .accordion-item {
+        margin-bottom: 4%;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .accordion-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        background: none;
+        border: none;
+        font-size: 18px; /* Уменьшаем размер шрифта */
+        font-weight: 600;
+        text-align: left;
+        cursor: pointer;
+        padding: 8px 0; /* Добавляем отступы сверху и снизу */
+    }
+
+    .accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 2%;
+        font-size: 14px;
+        color: #555;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
+
+    .accordion-item.active .accordion-content {
+        font-size: 13vw;
+        max-height: 100%; /* Раскрываем полностью */
+        padding: 10px 0;
+    }
+
+    .accordion-arrow {
+        display: inline-block;
+        width: 12px;
+        height: 8px;
+    }
+
+    .accordion-arrow svg {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.8s ease;
+    }
+
+    .accordion-item.active .accordion-arrow svg {
+        transform: rotate(180deg);
+    }
+}
+
+
+
+/* Мы сделаем Ваш офис/дом зелёным */
+.green-office-form {
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vw;
+    width: 90vw;
+    padding: 4%;
+    margin-bottom: 5%;
+    font-size: var(--base-font-size);
+}
+
+.green-office-form .container {
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.green-office-form .left, .right {
+    padding: 8%;
+    flex: 1;
+}
+
+.green-office-form .right {
+    padding-top: 10%;
+}
+
+.green-office-form .left .left-header {
+    font-size: 50%;
+    margin-bottom: 4%;
+    text-align: center;
+}
+
+.green-office-form .images {
+    display: flex;
+    flex-direction: column;
+}
+
+.green-office-form .images img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.green-office-form .small-images {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+.green-office-form .small-images img {
+    width: 48%;
+    border-radius: 10px;
+}
+
+.green-office-form .form {
+    display: flex;
+    flex-direction: column;
+}
+
+.green-office-form .form h2 {
+    font-size: 40%;
+    margin-bottom: 2%;
+}
+
+.green-office-form .form input {
+    padding: 2.5%;
+    margin-bottom: 2%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 25%;
+    background: #d2e8c0;
+}
+
+.green-office-form .checkbox {
+    display: flex;
+    font-size: 20%;
+    width: 100%;
+}
+
+.green-office-form .checkbox input {
+    width: 5%;
+}
+
+.green-office-form .checkbox a {
+    color: #ff6600;
+}
+
+.green-office-form button {
+    background: white;
+    border: 2px solid green;
+    padding: 2%;
+    font-size: 25%;
+    color: green;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 2%;
+}
+
+.green-office-form button:hover {
+    background: green;
+    color: white;
+}
+
+.green-office-form .info {
+    margin-top: 4%;
+    text-align: center;
+    color: #666;
+    font-size: 20%;
+}
+
+.green-office-form .info img {
+    width: 60%;
+}
+
+/* Для экранов до 768px */
+@media (max-width: 768px) {
+    .green-office-form {
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 4%;
+        font-size: 14px;
+        margin-bottom: 5%;
+        width: 100%;
+        height: auto;
+    }
+
+    .green-office-form .container {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        align-items: center;
+    }
+
+    .green-office-form .left, .green-office-form .right {
+        width: 100%; /* Обеспечиваем, чтобы оба блока занимали 100% ширины */
+        padding: 4%;
+    }
+
+    .green-office-form .left .left-header {
+        font-size: 22px; /* Уменьшаем размер заголовка */
+        margin-bottom: 5%;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .green-office-form .images {
+        width: 100%;
+        margin-bottom: 4%;
+    }
+
+    .green-office-form .images img {
+        width: 100%;
+        border-radius: 10px;
+        margin-bottom: 4%;
+    }
+
+    .green-office-form .small-images {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 2%;
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .green-office-form .small-images img {
+        width: 48%;
+        border-radius: 10px;
+    }
+
+    .green-office-form .form {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .green-office-form .form h2 {
+        font-size: 18px;
+        margin-bottom: 3%;
+        text-align: center;
+        font-weight: 600;
+        color: #333;
+    }
+
+    .green-office-form .form input {
+        padding: 2.5%;
+        margin-bottom: 3%;
+        width: 90%;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        font-size: 16px;
+        background: #d2e8c0;
+    }
+
+    .green-office-form .checkbox {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        margin-top: 3%;
+        text-align: center;
+    }
+
+    .green-office-form .checkbox input {
+        width: auto;
+        margin-right: 5px;
+        margin-top: 10px;
+    }
+
+    .green-office-form .checkbox a {
+        color: #ff6600;
+        text-decoration: none;
+    }
+
+    .green-office-form button {
+        background: white;
+        border: 2px solid green;
+        padding: 2.5%;
+        font-size: 16px;
+        color: green;
+        border-radius: 5px;
+        cursor: pointer;
+        margin-top: 4%;
+        width: 100%;
+    }
+
+    .green-office-form button:hover {
+        background: green;
+        color: white;
+    }
+
+    .green-office-form .info {
+        margin-top: 4%;
+        text-align: center;
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 1px;
+    }
+
+    .green-office-form .info img {
+        width: 70%;
+        margin-top: 3%;
+    }
+}
+
+
+/* Подвал сайта */
+footer {
+    background: #ffffff;
+    padding: 5vw 5% 0%;
+    color: #333;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.footer-nav, .footer-social {
+    min-width: 10px;
+    bottom: 0%;
+    right: 5%;
+}
+
+.footer-nav h3, .footer-social h3 {
+    font-size: 1rem;
+    margin-bottom: 1%;
+}
+
+.footer-menu {
+    font-size: 20%;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-menu li {
+    margin-bottom: 5px;
+}
+
+.footer-menu a {
+    text-decoration: none;
+    color: #333;
+    transition: color 0.3s;
+}
+
+.footer-menu a:hover {
+    color: #2055E5;
+}
+
+.social-icons a {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.footer-text {
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        transform: translateY(-15%);
+    }
+
+    .footer-nav, .footer-social {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .footer-nav h3, .footer-social h3 {
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+    }
+
+    .footer-menu {
+        font-size: 1rem;
+        margin-top: 1rem;
+        margin-bottom: 0;
+    }
+
+    .footer-menu li {
+        margin-bottom: 10px;
+    }
+
+    .social-icons {
+        margin-top: 10px;
+    }
+
+    .footer-text {
+        margin-top: 15px;
+        font-size: 0.8rem;
+    }
+}
+
+
+
+/* Ошибка теперь над полем */
+.form .error {
+    color: red;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Подсветка ошибок */
+.form .input-error {
+    border: 2px solid red !important;
+    background-color: #ffe6e6 !important;
+    color: black !important;
+}
+
+/* === Стили для формы с почтой === */
+.email-form {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Поле ввода email */
+.email-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Ошибка теперь аккуратно под полем */
+.email-form .error {
+    color: red;
+    font-size: 14px;
+    position: absolute;
+    bottom: -20px; /* Ошибка отображается под полем */
+    left: 0;
+}
+
+
+
+
+
